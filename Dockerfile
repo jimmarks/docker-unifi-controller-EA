@@ -10,7 +10,7 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="aptalca"
 
 # environment settings
-ARG UNIFI_BRANCH="stable"
+ARG UNIFI_BRANCH="earlyrelease"
 ARG DEBIAN_FRONTEND="noninteractive"
 
 RUN \
@@ -33,7 +33,8 @@ RUN \
   mkdir -p /app && \
   curl -o \
   /tmp/unifi.deb -L \
-    "https://dl.ui.com/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" && \
+    "https://dl.ui.com/unifi/7.5.172-39991973d0/unifi-native_sysvinit.deb && \
+  #  "https://dl.ui.com/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" && \
   dpkg -i /tmp/unifi.deb && \
   echo "**** cleanup ****" && \
   apt-get clean && \
