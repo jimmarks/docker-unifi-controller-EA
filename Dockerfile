@@ -34,7 +34,6 @@ RUN \
   curl -o \
   /tmp/unifi.deb -L \
     "https://dl.ui.com/unifi/7.5.172-39991973d0/unifi-native_sysvinit.deb && \
-  #  "https://dl.ui.com/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" && \
   dpkg -i /tmp/unifi.deb && \
   echo "**** cleanup ****" && \
   apt-get clean && \
@@ -42,7 +41,9 @@ RUN \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/*
-
+#  Line 36 Changed from:
+#  "https://dl.ui.com/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" && \
+ 
 # add local files
 COPY root/ /
 
